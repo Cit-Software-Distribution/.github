@@ -1,0 +1,47 @@
+name: Atualizar Manifesto
+
+on:
+  repository_dispatch:
+    types: [new_package_release]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Injetar nova vesão no manifesto
+        shell: python
+        run: |
+          import json
+          import os
+
+          payload = json.loads('${{ toJson(github.event.client_payload) }}')
+          pkg_name = payload['package']
+          pkg_version = payload['version']
+          pkg_data = {
+            "url": payload['url'],
+            "checksum": payload['checksum']
+          }
+
+          manifest_path = 'manifest.json'
+          with open(manifest_path, 'r') as f:
+            manifest = json.load(f)
+
+          if 'programs' not in manifest:
+            manifest['programs'] = {}
+
+          if pkg_name not in manifest['programs']:
+            manifest['programs'][pkg_name] = {}
+
+          manifest['programs'][pkg_name][pkg_version] = pkg_data
+
+          with open(manifest_path, 'w') as f:
+            json.dump(manifest, f, ident=2)
+
+      - name: Auto commit e Push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: adicionar pacote ${{ github.event.client_payload.package }} (${{ github.event.client_payload.version }})"
+          file_pattern: 'manifest.json'
