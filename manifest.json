@@ -1,0 +1,19 @@
+{
+  "programs": {
+    "assembler": {
+      "version": "v0.1.0",
+      "url": "https://github.com/Cit-Software-Distribution/Neander-Compiler-Stack/releases/download/v0.1.0/assembler-v0.1.0-x86_64-linux.tar.gz",
+      "checksum": "c0539665bdfe77b7c213106e42539b953f49b6820837afe144291126d971e0cd"
+    },
+    "calc": {
+      "version": "v0.1.0",
+      "url": "https://github.com/Cit-Software-Distribution/Neander-Compiler-Stack/releases/download/v0.1.0/calc-v0.1.0-x86_64-linux.tar.gz",
+      "checksum": "540b8b9328996496700b306bf514dd635fb271814ef0b4b739fe50378427eebd"
+    },
+    "interpreter": {
+      "version": "v0.1.0",
+      "url": "https://github.com/Cit-Software-Distribution/Neander-Compiler-Stack/releases/download/v0.1.0/interpreter-v0.1.0-x86_64-linux.tar.gz",
+      "checksum": "288fa2e41ff3c4f6df5c8ddba1c3aa5dd69fbaa00db91003ff6317601e2251c7"
+    }
+  }
+}
