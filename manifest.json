@@ -2,7 +2,7 @@
   "programs": {
     "cping": {
       "v0.0.1": {
-        "url": "https://github.com/Cit-Software-Distribution/cping/releases/download/v0.0.1/cping.tar.gz",
+        "url": "https://github.com/Cit-Software-Distribution/cping/releases/download/v0.0.1/cping-v0.0.1-x86_64-linux.tar.gz",
         "checksum": ""
       }
     }
