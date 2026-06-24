@@ -13,11 +13,14 @@ jobs:
 
       - name: Injetar nova vesão no manifesto
         shell: python
+        env:
+          PAYLOAD_JSON: ${{ toJson(github.event.client_payload) }}
         run: |
           import json
           import os
 
-          payload = json.loads('${{ toJson(github.event.client_payload) }}')
+          payload_str = os.environ.get('PAYLOAD_JSON', '{}')
+          payload = json.loads(payload_str)
           pkg_name = payload['package']
           pkg_version = payload['version']
           pkg_data = {
@@ -38,7 +41,7 @@ jobs:
           manifest['programs'][pkg_name][pkg_version] = pkg_data
 
           with open(manifest_path, 'w') as f:
-            json.dump(manifest, f, ident=2)
+            json.dump(manifest, f, indent=2)
 
       - name: Auto commit e Push
         uses: stefanzweifel/git-auto-commit-action@v5
