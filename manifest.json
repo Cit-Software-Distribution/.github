@@ -14,6 +14,12 @@
       "version": "v0.1.0",
       "url": "https://github.com/Cit-Software-Distribution/Neander-Compiler-Stack/releases/download/v0.1.0/interpreter-v0.1.0-x86_64-linux.tar.gz",
       "checksum": "288fa2e41ff3c4f6df5c8ddba1c3aa5dd69fbaa00db91003ff6317601e2251c7"
+    },
+    "cping": {
+      "v0.0.1": {
+        "url": "https://github.com/Cit-Software-Distribution/cping/releases/download/v0.0.1/cping.tar.gz",
+        "checksum": "4db395707328d118b4c95a712507ddeb24d466253ddc37f4bf192511f0391b31"
+      }
     }
   }
 }
